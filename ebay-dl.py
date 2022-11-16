@@ -37,6 +37,15 @@ def parse_price(text):
                 return int(price)
         return int(price)
 
+def parse_status(text):
+    status = ''
+    for char in text:
+        if char == '·':
+            return status
+        else:
+            status += char
+    return status
+
 def parse_ship_cost(text):
     ship_cost = ''
     if 'free' in text.lower():
@@ -93,7 +102,7 @@ for page_number in range(1, int(args.num_pages)+1):
         status = None
         tags_status = tag_item.select('.SECONDARY_INFO')
         for tag in tags_status:
-            status = tag.text
+            status = parse_status(tag.text)
 
         shipping = None
         tags_shipping = tag_item.select('.s-item__shipping,.s-item__freeXDays')
