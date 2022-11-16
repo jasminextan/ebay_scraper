@@ -57,13 +57,13 @@ def parse_ship_cost(text):
                 ship_cost += char
         return int(ship_cost)
 
-def parse_items_sold(text):
-    sold = ''
+def parse_itemssold(text):
+    numbers = ''
     for char in text:
         if char in '1234567890':
-            sold += char
+            numbers += char
     if 'sold' in text:
-        return int(sold)
+        return int(numbers)
     else:
         return None
 
@@ -115,9 +115,9 @@ for page_number in range(1, int(args.num_pages)+1):
             freereturns = True
 
         items_sold = None
-        tags_itemssold = tag_item.select('.s-item__hotness, .s-item__additionalItemHotness')
+        tags_itemssold = tag_item.select('.s-item__hotness')
         for tag in tags_itemssold:
-            items_sold = parse_items_sold(tag.text)
+            items_sold = parse_itemssold(tag.text)
 
 
         item = {
