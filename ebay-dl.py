@@ -58,12 +58,12 @@ def parse_ship_cost(text):
         return int(ship_cost)
 
 def parse_items_sold(text):
-    numitems = ''
+    sold = ''
     for char in text:
         if char in '1234567890':
-            numbers += char
+            sold += char
     if 'sold' in text:
-        return int(numitems)
+        return int(sold)
     else:
         return None
 
