@@ -115,9 +115,10 @@ for page_number in range(1, int(args.num_pages)+1):
             freereturns = True
 
         items_sold = None
-        tags_itemssold = tag_item.select('.s-item__hotness')
+        tags_itemssold = tag_item.select('.s-item__hotness, .s-item__additionalItemHotness')
         for tag in tags_itemssold:
             items_sold = parse_items_sold(tag.text)
+
 
         item = {
             'name': name,
