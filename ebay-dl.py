@@ -14,16 +14,6 @@ free_returns
 items_sold
 '''
 
-def parse_name(text):
-    name = ''
-    if 'New Listing' in text:
-        for char in text[11:]:
-            name += char
-    else:
-        for char in text:
-            name += char
-    return name
-
 def parse_price(text):
     price = ''
     if 'see price' in text.lower():

@@ -19,7 +19,7 @@ The goal of this project was to create code that could create a JSON/CSV file ba
 1. complete a python project entirely on your own (no starter code!)
 1. integrate python knowledge with HTML knowledge+JSON knowledge
 
-*How to Run the Code*
+**How to Run the Code**
 
 Use the following code to run my code if you have an item you'd like to search for:
 
