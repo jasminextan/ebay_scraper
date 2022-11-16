@@ -139,6 +139,6 @@ if args.csv:
         w.writeheader()
         w.writerows(items)
 else:
-    filename = args.search_terms+'.json'
+    filename = args.search_term+'.json'
     with open(filename, 'w', encoding = 'ascii') as f:
         f.write(json.dumps(items))
