@@ -14,6 +14,17 @@ free_returns
 items_sold
 '''
 
+
+def parse_name(text):
+    name = ''
+    if 'New Listing' in text:
+        for char in text[11:]:
+            name += char
+    else:
+        for char in text:
+            name += char
+    return name
+
 def parse_price(text):
     price = ''
     if 'see price' in text.lower():
@@ -25,15 +36,6 @@ def parse_price(text):
             if char == 't':
                 return int(price)
         return int(price)
-
-def parse_status(text):
-    status = ''
-    for char in text:
-        if char == '·':
-            return status
-        else:
-            status += char
-    return status
 
 def parse_ship_cost(text):
     ship_cost = ''
@@ -81,7 +83,7 @@ for page_number in range(1, int(args.num_pages)+1):
         name = None
         tags_name = tag_item.select('.s-item__title')
         for tag in tags_name:
-            name = tag.text
+            name = parse_name(tag.text)
 
         price = None
         tags_price = tag_item.select('.s-item__price')
