@@ -38,13 +38,13 @@ def parse_price(text):
         return int(price)
 
 def parse_status(text):
-    status = ''
+    statuses = ''
     for char in text:
         if char == '·':
-            return status
+            return statuses
         else:
-            status += char
-    return status
+            statuses += char
+    return statuses
 
 def parse_ship_cost(text):
     ship_cost = ''
@@ -100,8 +100,8 @@ for page_number in range(1, int(args.num_pages)+1):
             price = parse_price(tag.text)
 
         status = None
-        tags_status = tag_item.select('.SECONDARY_INFO')
-        for tag in tags_status:
+        tags_statuses = tag_item.select('.SECONDARY_INFO')
+        for tag in tags_statuses:
             status = parse_status(tag.text)
 
         shipping = None
