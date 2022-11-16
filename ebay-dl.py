@@ -100,8 +100,8 @@ for page_number in range(1, int(args.num_pages)+1):
             price = parse_price(tag.text)
 
         status = None
-        tags_statuses = tag_item.select('.SECONDARY_INFO')
-        for tag in tags_statuses:
+        tags_status = tag_item.select('.SECONDARY_INFO')
+        for tag in tags_status:
             status = parse_status(tag.text)
 
         shipping = None
