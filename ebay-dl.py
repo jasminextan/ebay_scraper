@@ -62,6 +62,7 @@ def parse_itemssold(text):
     for char in text:
         if char in '1234567890':
             numbers += char
+    print('items sold of' + text + ':' + numbers)
     if 'sold' in text:
         return int(numbers)
     else:
@@ -115,7 +116,8 @@ for page_number in range(1, int(args.num_pages)+1):
             freereturns = True
 
         items_sold = None
-        tags_itemssold = tag_item.select('.s-item__hotness')
+        tags_itemssold = tag_item.select('.s-item__quantitySold')
+        print ('ITEMS SOLD: ' + str(tags_itemssold))
         for tag in tags_itemssold:
             items_sold = parse_itemssold(tag.text)
 
